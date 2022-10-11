@@ -3,9 +3,11 @@ package com.guilhermegaspar.jokes.features.jokes.presentation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.guilhermegaspar.jokes.common.getRandomResourceColor
-import com.guilhermegaspar.jokes.common.setImageFromUrl
+import androidx.core.view.isVisible
+import com.guilhermegaspar.jokes.common.extension.getRandomResourceColor
+import com.guilhermegaspar.jokes.common.extension.setImageFromUrl
 import com.guilhermegaspar.jokes.databinding.ActivityJokeBinding
+import com.guilhermegaspar.jokes.features.jokes.domain.model.Joke
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class JokeActivity : AppCompatActivity() {
@@ -15,24 +17,37 @@ class JokeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityJokeBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setupScreen()
         setupObserver()
     }
 
-    private fun setupObserver() {
-        viewModel.joke.observe(this) {
-            if (it.isLoading) {
-                binding.progressBar.visibility = View.VISIBLE
-                binding.cardViewMain.visibility = View.GONE
-            } else {
-                val resourceColor = getRandomResourceColor()
-                binding.cardViewMain.visibility = View.VISIBLE
-                binding.mainContainer.setBackgroundResource(resourceColor)
-                binding.textViewJoke.text = it.joke?.value
-                binding.imageViewJoke.setImageFromUrl(it.joke?.iconUrl, this)
-            }
+    private fun setupScreen() {
+        binding = ActivityJokeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+    }
 
+    private fun setupObserver() {
+        viewModel.state.observe(this) { state ->
+            setupUi(state)
         }
+    }
+
+    private fun setupUi(state: JokeState) {
+        showLoading(state.isLoading)
+        state.joke?.let { joke ->
+            showContainer(joke)
+        }
+    }
+
+    private fun showContainer(joke: Joke) {
+        val resourceColor = getRandomResourceColor()
+        binding.mainContainer.setBackgroundResource(resourceColor)
+        binding.textViewJoke.text = joke.value
+        binding.imageViewJoke.setImageFromUrl(joke.iconUrl, context = this)
+    }
+
+    private fun showLoading(loading: Boolean) {
+        binding.progressBar.isVisible = loading
+        binding.cardViewMain.isVisible = !loading
     }
 }

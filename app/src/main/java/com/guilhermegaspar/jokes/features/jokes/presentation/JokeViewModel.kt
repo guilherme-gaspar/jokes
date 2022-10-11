@@ -16,8 +16,8 @@ import kotlinx.coroutines.launch
 
 class JokeViewModel(private val getRandomJokeUseCase: GetRandomJokeUseCase) : ViewModel() {
 
-    private val _joke: MutableLiveData<Joke> = MutableLiveData()
-    val joke: LiveData<Joke> = _joke
+    private val _joke: MutableLiveData<JokeState> = MutableLiveData(JokeState())
+    val joke: LiveData<JokeState> = _joke
 
     init {
         getRandomJoke()
@@ -26,14 +26,15 @@ class JokeViewModel(private val getRandomJokeUseCase: GetRandomJokeUseCase) : Vi
     fun getRandomJoke() {
         viewModelScope.launch {
             getRandomJokeUseCase().onStart {
-                Log.i("JokeApplication", "OnStartFlow")
+                _joke.value = _joke.value?.copy(isLoading = true)
             }.catch {
                 Log.i("JokeApplication", "CatchFlow: ${it.message}")
             }.onCompletion {
                 Log.i("JokeApplication", "OnCompletion")
+                _joke.value = _joke.value?.copy(isLoading = false)
             }.collect {
                 Log.i("JokeApplication", "ColletFlow")
-                _joke.value = (it)
+                _joke.value = _joke.value?.copy(joke = it, isLoading = false)
             }
         }
     }

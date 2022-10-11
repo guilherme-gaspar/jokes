@@ -1,5 +1,6 @@
 package com.guilhermegaspar.jokes.features.jokes.di
 
+import com.guilhermegaspar.jokes.features.jokes.data.remote.datasource.JokeRemoteDataSourceImpl
 import com.guilhermegaspar.jokes.features.jokes.data.remote.service.JokeService
 import com.guilhermegaspar.jokes.features.jokes.data.repository.JokeRepositoryImpl
 import com.guilhermegaspar.jokes.features.jokes.domain.usecase.GetRandomJokeUseCase
@@ -17,7 +18,11 @@ fun getJokeModule() = module {
         JokeViewModel(
             getRandomJokeUseCase = GetRandomJokeUseCase(
                 JokeRepositoryImpl(
-                    jokeService = get<Retrofit>().create(JokeService::class.java)
+                    remoteDataSource = JokeRemoteDataSourceImpl(
+                        jokeService = get<Retrofit>().create(
+                            JokeService::class.java
+                        )
+                    )
                 )
             )
         )

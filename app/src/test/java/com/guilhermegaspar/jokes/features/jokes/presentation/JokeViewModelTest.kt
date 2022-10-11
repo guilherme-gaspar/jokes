@@ -49,7 +49,7 @@ class JokeViewModelTest {
 
         // Then
         val actualLiveData = jokeViewModel.joke.getOrAwaitValue()
-        assertEquals(actualLiveData, joke)
+        assertEquals(actualLiveData.joke, joke)
     }
 }
 

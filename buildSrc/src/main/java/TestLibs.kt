@@ -9,6 +9,12 @@ object TestLibs {
     // Espresso
     const val espressoCore = "androidx.test.espresso:espresso-core:3.4.0"
 
+    // Runner
+    const val runner = "androidx.test:runner:1.4.0"
+
+    // Rules
+    const val rules = "androidx.test:rules:1.4.0"
+
     // Coroutine
     const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
 

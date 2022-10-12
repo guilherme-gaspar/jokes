@@ -68,13 +68,15 @@ dependencies {
 
     // Mockk
     testImplementation TestLibs.mockk
-    testImplementation TestLibs.mockkAndroid
+    androidTestImplementation TestLibs.mockkAndroid
 
     // Test
     testImplementation TestLibs.archCore
     testImplementation TestLibs.junit
     androidTestImplementation TestLibs.junitExt
     androidTestImplementation TestLibs.espressoCore
+    androidTestImplementation TestLibs.runner
+    androidTestImplementation TestLibs.rules
 
     // Turbine
     testImplementation TestLibs.turbine

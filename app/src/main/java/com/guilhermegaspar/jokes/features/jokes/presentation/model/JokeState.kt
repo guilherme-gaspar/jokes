@@ -1,4 +1,4 @@
-package com.guilhermegaspar.jokes.features.jokes.presentation
+package com.guilhermegaspar.jokes.features.jokes.presentation.model
 
 import com.guilhermegaspar.jokes.features.jokes.domain.model.Joke
 

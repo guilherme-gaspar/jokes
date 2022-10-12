@@ -1,14 +1,15 @@
-package com.guilhermegaspar.jokes.features.jokes.presentation
+package com.guilhermegaspar.jokes.features.jokes.presentation.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.guilhermegaspar.jokes.common.extension.getRandomResourceColor
 import com.guilhermegaspar.jokes.common.extension.setImageFromUrl
 import com.guilhermegaspar.jokes.databinding.ActivityJokeBinding
 import com.guilhermegaspar.jokes.features.jokes.domain.model.Joke
+import com.guilhermegaspar.jokes.features.jokes.presentation.model.JokeState
+import com.guilhermegaspar.jokes.features.jokes.presentation.viewmodel.JokeViewModel
 import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -47,7 +48,8 @@ class JokeActivity : AppCompatActivity() {
         val resourceColor = getRandomResourceColor()
         binding.mainContainer.setBackgroundResource(resourceColor)
         binding.textViewJoke.text = joke.value
-        binding.imageViewJoke.setImageFromUrl(joke.iconUrl, context = this)
+        // URL da API não está funcional, por isso no parâmetro
+        binding.imageViewJoke.setImageFromUrl(url = null, context = this)
     }
 
     private fun showLoading(loading: Boolean) {

@@ -2,7 +2,7 @@ package com.guilhermegaspar.jokes.features.jokes.presentation.ui.screen
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import com.guilhermegaspar.jokes.features.jokes.presentation.JokeViewModel
+import com.guilhermegaspar.jokes.features.jokes.presentation.viewmodel.JokeViewModel
 import com.guilhermegaspar.jokes.features.jokes.presentation.ui.components.CircularProgressBar
 import com.guilhermegaspar.jokes.features.jokes.presentation.ui.components.JokesList
 

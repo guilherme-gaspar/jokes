@@ -5,6 +5,8 @@ import app.cash.turbine.test
 import com.guilhermegaspar.jokes.common.MainDispatcherRule
 import com.guilhermegaspar.jokes.features.jokes.domain.model.Joke
 import com.guilhermegaspar.jokes.features.jokes.domain.usecase.GetRandomJokeUseCase
+import com.guilhermegaspar.jokes.features.jokes.presentation.model.JokeState
+import com.guilhermegaspar.jokes.features.jokes.presentation.viewmodel.JokeViewModel
 import io.mockk.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow

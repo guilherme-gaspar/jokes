@@ -1,4 +1,4 @@
-package com.guilhermegaspar.jokes.features.jokes.presentation
+package com.guilhermegaspar.jokes.features.jokes.presentation.ui.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -6,10 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.guilhermegaspar.jokes.features.jokes.presentation.viewmodel.JokeViewModel
 import com.guilhermegaspar.jokes.features.jokes.presentation.ui.screen.JokeScreen
 import com.guilhermegaspar.jokes.features.jokes.presentation.ui.theme.JokesTheme
 import org.koin.androidx.viewmodel.ext.android.viewModel

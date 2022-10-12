@@ -7,17 +7,15 @@ import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.guilhermegaspar.jokes.features.jokes.domain.model.Joke
-import com.guilhermegaspar.jokes.features.jokes.presentation.JokeActivity
-import com.guilhermegaspar.jokes.features.jokes.presentation.JokeState
-import com.guilhermegaspar.jokes.features.jokes.presentation.JokeViewModel
+import com.guilhermegaspar.jokes.features.jokes.presentation.ui.activity.JokeActivity
+import com.guilhermegaspar.jokes.features.jokes.presentation.model.JokeState
+import com.guilhermegaspar.jokes.features.jokes.presentation.viewmodel.JokeViewModel
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @RunWith(AndroidJUnit4::class)
 class JokeActivityTest {

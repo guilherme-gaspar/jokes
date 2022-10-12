@@ -1,13 +1,11 @@
-package com.guilhermegaspar.jokes.features.jokes.presentation
+package com.guilhermegaspar.jokes.features.jokes.presentation.viewmodel
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.guilhermegaspar.jokes.features.jokes.domain.model.Joke
 import com.guilhermegaspar.jokes.features.jokes.domain.usecase.GetRandomJokeUseCase
-import kotlinx.coroutines.Dispatchers
+import com.guilhermegaspar.jokes.features.jokes.presentation.model.JokeState
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch

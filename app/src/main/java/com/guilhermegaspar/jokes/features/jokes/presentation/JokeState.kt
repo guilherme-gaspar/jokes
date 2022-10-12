@@ -4,5 +4,5 @@ import com.guilhermegaspar.jokes.features.jokes.domain.model.Joke
 
 data class JokeState(
     val isLoading: Boolean = false,
-    val joke: Joke? = null
+    val joke: List<Joke> = emptyList()
 )

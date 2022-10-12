@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Jokes</string>
     <string name="imagem_da_piada">Imagem da Piada</string>
+    <string name="title_activity_joke_compose">JokeComposeActivity</string>
 </resources>

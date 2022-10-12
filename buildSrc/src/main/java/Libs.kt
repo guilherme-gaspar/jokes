@@ -7,6 +7,7 @@ object Libs {
 
     // Lifecycle
     const val lifecycleViewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
+    const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
 
     // Support
     const val appCompat = "androidx.appcompat:appcompat:1.5.1"
@@ -27,6 +28,13 @@ object Libs {
 
     // Glide
     const val glide = "com.github.bumptech.glide:glide:4.14.2"
+
+    // Compose
+    const val activityCompose = "androidx.activity:activity-compose:1.3.1"
+    const val composeUi = "androidx.compose.ui:ui:1.2.1"
+    const val composePreview = "androidx.compose.ui:ui-tooling-preview:1.2.1"
+    const val composeMaterial = "androidx.compose.material:material:1.2.1"
+    const val composeRuntimeLivedate = "androidx.compose.runtime:runtime-livedata:1.2.1"
 }
 
 

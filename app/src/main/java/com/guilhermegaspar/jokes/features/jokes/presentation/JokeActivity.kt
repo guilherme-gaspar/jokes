@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
 import com.guilhermegaspar.jokes.common.extension.getRandomResourceColor
 import com.guilhermegaspar.jokes.common.extension.setImageFromUrl
 import com.guilhermegaspar.jokes.databinding.ActivityJokeBinding
 import com.guilhermegaspar.jokes.features.jokes.domain.model.Joke
+import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class JokeActivity : AppCompatActivity() {
@@ -27,14 +29,16 @@ class JokeActivity : AppCompatActivity() {
     }
 
     private fun setupObserver() {
-        viewModel.state.observe(this) { state ->
-            setupUi(state)
+        lifecycleScope.launchWhenResumed {
+            viewModel.state.collectLatest { state ->
+                setupUi(state)
+            }
         }
     }
 
     private fun setupUi(state: JokeState) {
         showLoading(state.isLoading)
-        state.joke?.let { joke ->
+        state.joke.forEach { joke ->
             showContainer(joke)
         }
     }

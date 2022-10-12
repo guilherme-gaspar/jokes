@@ -15,6 +15,9 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
     }
 
     buildTypes {
@@ -32,7 +35,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = Config.JvmTargetVersion
+        jvmTarget = '1.8'
     }
 
     testOptions {
@@ -41,6 +44,17 @@ android {
 
     viewBinding {
         enabled = true
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.3.0'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
     }
 
 }
@@ -83,4 +97,12 @@ dependencies {
 
     // Glide
     implementation Libs.glide
+
+    // Compose
+    implementation Libs.lifecycleRuntime
+    implementation Libs.activityCompose
+    implementation Libs.composeUi
+    implementation Libs.composePreview
+    implementation Libs.composeMaterial
+    implementation Libs.composeRuntimeLivedate
 }

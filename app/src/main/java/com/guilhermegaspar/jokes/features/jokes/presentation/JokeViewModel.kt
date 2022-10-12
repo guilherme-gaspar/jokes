@@ -8,16 +8,14 @@ import androidx.lifecycle.viewModelScope
 import com.guilhermegaspar.jokes.features.jokes.domain.model.Joke
 import com.guilhermegaspar.jokes.features.jokes.domain.usecase.GetRandomJokeUseCase
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.onCompletion
-import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 class JokeViewModel(private val getRandomJokeUseCase: GetRandomJokeUseCase) : ViewModel() {
 
-    private val _state: MutableLiveData<JokeState> = MutableLiveData(JokeState())
-    val state: LiveData<JokeState> = _state
+    private val _state: MutableStateFlow<JokeState> = MutableStateFlow(JokeState())
+    val state: StateFlow<JokeState> = _state
 
     init {
         getRandomJoke()
@@ -26,15 +24,17 @@ class JokeViewModel(private val getRandomJokeUseCase: GetRandomJokeUseCase) : Vi
     fun getRandomJoke() {
         viewModelScope.launch {
             getRandomJokeUseCase().onStart {
-                _state.value = _state.value?.copy(isLoading = true)
+                _state.value = _state.value.copy(isLoading = true)
+                delay(2000)
             }.catch {
                 Log.i("JokeApplication", "CatchFlow: ${it.message}")
             }.onCompletion {
-                Log.i("JokeApplication", "OnCompletion")
-                _state.value = _state.value?.copy(isLoading = false)
+                _state.value = _state.value.copy(isLoading = false)
             }.collect {
-                Log.i("JokeApplication", "ColletFlow")
-                _state.value = _state.value?.copy(joke = it, isLoading = false)
+                _state.value = JokeState(joke = mutableListOf<Joke>().apply {
+                    addAll(_state.value.joke)
+                    add(it)
+                })
             }
         }
     }

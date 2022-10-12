@@ -1,8 +1,8 @@
 package com.guilhermegaspar.jokes.features.jokes.presentation
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import app.cash.turbine.test
 import com.guilhermegaspar.jokes.common.MainDispatcherRule
-import com.guilhermegaspar.jokes.common.getOrAwaitValue
 import com.guilhermegaspar.jokes.features.jokes.domain.model.Joke
 import com.guilhermegaspar.jokes.features.jokes.domain.usecase.GetRandomJokeUseCase
 import io.mockk.*
@@ -35,11 +35,10 @@ class JokeViewModelTest {
         jokeViewModel = JokeViewModel(getRandomJokeUseCase = getRandomJokeUseCase)
     }
 
-    @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun `getRandomJoke should get random joke`() = runTest {
         // Given
-        val joke = Joke("", "", "", "")
+        val joke = Joke("Teste", "teste", "teste", "teste")
 
         every { getRandomJokeUseCase() } returns flow { emit(joke) }
 
@@ -48,8 +47,23 @@ class JokeViewModelTest {
         advanceUntilIdle()
 
         // Then
-        val actualLiveData = jokeViewModel.joke.getOrAwaitValue()
-        assertEquals(actualLiveData.joke, joke)
+        jokeViewModel.state.test {
+            val item = awaitItem().joke.first()
+            assertEquals(joke, item)
+        }
+    }
+
+    @Test
+    fun `init should have the correct state`() {
+        // Given
+        val initialState = JokeState()
+        val currentState = jokeViewModel.state.value
+
+        // When
+        createViewModel()
+
+        // Then
+        assertEquals(currentState, initialState)
     }
 }
 

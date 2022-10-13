@@ -1,9 +1,6 @@
 # Jokes
 Projeto que randomiza piadas do Chuck Norris, realizando chamadas a API https://api.chucknorris.io/ e convertendo a resposta da API para uma lista dentro do APP.
 
-# Demonstração
-<img src="https://user-images.githubusercontent.com/22418520/195515114-8be11f3d-b1e5-42dc-8c56-bf9bc22bc094.jpg" alt="demo" width="300"/>
-
 # Arquitetura
 Foi dividido a aplicaçao em pacotes que nos possibilita trabalhar com features modules, a arquitetura geral do app segue os príncipios do Clean Architecture. Visando no futuro uma escalabilidade do projeto, e também uma modularização foi pensando justamente nessa questão de isolar a feature e trabalhar dentro dela com uma arquitetura que segue uma divisão por 3 principais camadas (Data, Domain e Presentation). 
 
@@ -33,6 +30,9 @@ MockWebServer (okHttp)
 
 - Testes instrumentados
 Espresso
+
+# Demonstração
+<img src="https://user-images.githubusercontent.com/22418520/195515114-8be11f3d-b1e5-42dc-8c56-bf9bc22bc094.jpg" alt="demo" width="300"/>
 
 # Futuro
 Como o aplicativo ainda pode ser melhorados, tem alguns pontos que podem e já foram analisados e pensados:

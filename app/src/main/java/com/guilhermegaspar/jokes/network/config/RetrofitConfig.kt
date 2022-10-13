@@ -1,4 +1,4 @@
-package com.guilhermegaspar.jokes.network
+package com.guilhermegaspar.jokes.network.config
 
 import com.guilhermegaspar.jokes.BuildConfig.BASE_URL as BASE_URL
 import okhttp3.OkHttpClient

@@ -39,3 +39,4 @@ Como o aplicativo ainda pode ser melhorados, tem alguns pontos que podem e já f
 - Modularizar
 - Nova feature de Favorito (Existe um TODO no código)
 - Botão para chegar ao top da lista (Existe um TODO no código)
+- Popular Version no buildSrc

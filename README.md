@@ -7,13 +7,18 @@ Foi dividido a aplicação em pacotes que nos possibilita trabalhar com features
 ![arch](https://user-images.githubusercontent.com/22418520/195513075-4d97d6c4-c5a4-4f96-b733-1bb7b1b23219.png)
 
 # O que foi utilizado
+
 - Conceitos de arquitetura/código limpo/padrões
+
+
 Clean Architecture
 MVVM
 SOLID
 Padrão repositório
 
 - Android
+
+
 Componentes do Jetpack
 ViewModel
 Compose

@@ -9,16 +9,14 @@ Foi dividido a aplicação em pacotes que nos possibilita trabalhar com features
 # O que foi utilizado
 
 - Conceitos de arquitetura/código limpo/padrões
-
-
+</br>
 Clean Architecture
 MVVM
 SOLID
 Padrão repositório
 
 - Android
-
-
+</br>
 Componentes do Jetpack
 ViewModel
 Compose
@@ -27,9 +25,11 @@ Flow
 Retrofit
 
 - Framework DI
+</br>
 Koin
 
 - Testes unitários
+</br>
 MockK
 MockWebServer (okHttp)
 

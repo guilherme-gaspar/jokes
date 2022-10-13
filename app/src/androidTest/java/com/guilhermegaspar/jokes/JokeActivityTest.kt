@@ -12,6 +12,7 @@ import com.guilhermegaspar.jokes.features.jokes.presentation.model.JokeState
 import com.guilhermegaspar.jokes.features.jokes.presentation.viewmodel.JokeViewModel
 import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.flow.MutableStateFlow
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -24,11 +25,11 @@ class JokeActivityTest {
     val activityRule = ActivityScenarioRule(JokeActivity::class.java)
 
     private val viewModel: JokeViewModel = mockk()
-    private val jokeLiveData = MutableLiveData<JokeState>()
+    private val state = MutableStateFlow(JokeState())
 
     @Before
     fun setup() {
-        every { viewModel.state } returns jokeLiveData
+        every { viewModel.state } returns state
     }
 
     @Test

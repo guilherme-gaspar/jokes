@@ -105,5 +105,7 @@ dependencies {
     implementation Libs.composePreview
     implementation Libs.composeMaterial
     implementation Libs.composeRuntimeLivedate
-    // implementation Libs.composeMaterial3
+
+    // MockWebServer
+    testImplementation TestLibs.mockWebServer
 }

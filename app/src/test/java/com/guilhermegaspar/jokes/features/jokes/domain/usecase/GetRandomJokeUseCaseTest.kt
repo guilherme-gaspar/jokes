@@ -3,6 +3,7 @@ package com.guilhermegaspar.jokes.features.jokes.domain.usecase
 import app.cash.turbine.test
 import com.guilhermegaspar.jokes.features.jokes.domain.model.Joke
 import com.guilhermegaspar.jokes.features.jokes.domain.repository.JokeRepository
+import com.guilhermegaspar.jokes.stub.JokeStub
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.flow
@@ -18,8 +19,8 @@ class GetRandomJokeUseCaseTest {
     @Test
     fun `getRandomJokeUseCase should return a Joke when success`() = runBlocking {
         // Given
-        val joke = Joke("", "2", "", "")
-        every { getRandomJokeUseCase() } returns flow { emit(Joke("", "2", "", "")) }
+        val joke = JokeStub.getDefaultJoke()
+        every { getRandomJokeUseCase() } returns flow { emit(joke) }
 
         // When
         val result = getRandomJokeUseCase()

@@ -6,6 +6,9 @@ object TestLibs {
     const val junit = "junit:junit:4.13.2"
     const val junitExt = "androidx.test.ext:junit:1.1.3"
 
+    // OkHttp
+    const val mockWebServer = "com.squareup.okhttp3:mockwebserver:4.9.3"
+
     // Espresso
     const val espressoCore = "androidx.test.espresso:espresso-core:3.4.0"
 

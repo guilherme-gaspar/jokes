@@ -1,6 +1,5 @@
 package com.guilhermegaspar.jokes.features.jokes.presentation.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.guilhermegaspar.jokes.features.jokes.domain.model.Joke
@@ -22,18 +21,34 @@ class JokeViewModel(private val getRandomJokeUseCase: GetRandomJokeUseCase) : Vi
     fun getRandomJoke() {
         viewModelScope.launch {
             getRandomJokeUseCase().onStart {
-                _state.value = _state.value.copy(isLoading = true)
-                delay(2000)
+                handleOnStart()
             }.catch {
-                Log.i("JokeApplication", "CatchFlow: ${it.message}")
+                handleError(it)
             }.onCompletion {
-                _state.value = _state.value.copy(isLoading = false)
+                handleCompletion()
             }.collect {
-                _state.value = JokeState(joke = mutableListOf<Joke>().apply {
-                    addAll(_state.value.joke)
-                    add(it)
-                })
+                handleSuccess(it)
             }
         }
+    }
+
+    private suspend fun handleOnStart() {
+        _state.value = _state.value.copy(isLoading = true)
+        delay(2000)
+    }
+
+    private fun handleSuccess(it: Joke) {
+        _state.value = JokeState(joke = mutableListOf<Joke>().apply {
+            addAll(_state.value.joke)
+            add(it)
+        })
+    }
+
+    private fun handleError(error: Throwable) {
+        _state.value = _state.value.copy(error = error.message)
+    }
+
+    private fun handleCompletion() {
+        _state.value = _state.value.copy(isLoading = false)
     }
 }

@@ -35,6 +35,7 @@ object Libs {
     const val composePreview = "androidx.compose.ui:ui-tooling-preview:1.2.1"
     const val composeMaterial = "androidx.compose.material:material:1.2.1"
     const val composeRuntimeLivedate = "androidx.compose.runtime:runtime-livedata:1.2.1"
+    const val composeMaterial3 = "androidx.compose.material3:material3:1.0.0-alpha02"
 }
 
 

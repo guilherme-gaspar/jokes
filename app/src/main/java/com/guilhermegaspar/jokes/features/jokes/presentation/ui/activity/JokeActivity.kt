@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
-import com.guilhermegaspar.jokes.common.extension.getRandomResourceColor
 import com.guilhermegaspar.jokes.common.extension.setImageFromUrl
+import com.guilhermegaspar.jokes.common.utils.getRandomResourceColor
 import com.guilhermegaspar.jokes.databinding.ActivityJokeBinding
 import com.guilhermegaspar.jokes.features.jokes.domain.model.Joke
 import com.guilhermegaspar.jokes.features.jokes.presentation.model.JokeState

@@ -8,33 +8,29 @@ Foi dividido a aplicação em pacotes que nos possibilita trabalhar com features
 
 # O que foi utilizado
 
-- Conceitos de arquitetura/código limpo/padrões
-</br>
-Clean Architecture
-MVVM
-SOLID
-Padrão repositório
+Conceitos de arquitetura/código limpo/padrões
+- Clean Architecture
+- MVVM
+- SOLID
+- Padrão repositório
 
-- Android
-</br>
-Componentes do Jetpack
-ViewModel
-Compose
-Coroutines
-Flow
-Retrofit
+Android
+- Componentes do Jetpack
+- ViewModel
+- Compose
+- Coroutines
+- Flow
+- Retrofit
 
-- Framework DI
-</br>
-Koin
+Framework DI
+- Koin
 
-- Testes unitários
-</br>
-MockK
-MockWebServer (okHttp)
+Testes unitários
+- MockK
+- MockWebServer (okHttp)
 
-- Testes instrumentados
-Espresso
+Testes instrumentados
+- Espresso
 
 # Demonstração
 <img src="https://user-images.githubusercontent.com/22418520/195515114-8be11f3d-b1e5-42dc-8c56-bf9bc22bc094.jpg" alt="demo" width="300"/>

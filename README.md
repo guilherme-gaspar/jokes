@@ -1,5 +1,5 @@
 # Jokes
-Projeto que realiza chamadas a API https://api.chucknorris.io/ e converte a resposta da API para uma lista dentro de piadas para o usuário dentro do APP.
+Projeto que realiza chamadas a API https://api.chucknorris.io/ e converte a resposta da API para uma lista de piadas para o usuário dentro do APP.
 
 # Arquitetura
 Foi dividido a aplicação em pacotes que nos possibilita trabalhar com features modules, a arquitetura geral do app segue os príncipios do Clean Architecture. Visando no futuro uma escalabilidade do projeto, e também uma modularização foi pensando justamente nessa questão de isolar a feature e trabalhar dentro dela com uma arquitetura que segue uma divisão por 3 principais camadas (Data, Domain e Presentation). 

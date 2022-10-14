@@ -34,6 +34,7 @@ class JokeViewModel(private val getRandomJokeUseCase: GetRandomJokeUseCase) : Vi
 
     private suspend fun handleOnStart() {
         _state.value = _state.value.copy(isLoading = true, error = null)
+        // TODO: Somente para simular LOADING na tela, código não está em produção
         delay(2000)
     }
 

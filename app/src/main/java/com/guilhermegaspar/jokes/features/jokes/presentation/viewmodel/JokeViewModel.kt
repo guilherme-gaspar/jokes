@@ -33,7 +33,7 @@ class JokeViewModel(private val getRandomJokeUseCase: GetRandomJokeUseCase) : Vi
     }
 
     private suspend fun handleOnStart() {
-        _state.value = _state.value.copy(isLoading = true)
+        _state.value = _state.value.copy(isLoading = true, error = null)
         delay(2000)
     }
 
